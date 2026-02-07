@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saumya Srivastava</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:#FFFBF0;color:#1a1a1a;overflow-x:hidden}
+
+/* ── ACTION CLOUD ── */
+.action-cloud{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.action-cloud span{position:absolute;left:var(--x);top:var(--y);color:var(--action-color);font-size:0.85rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;opacity:0;white-space:nowrap;--animate-duration:0.55s}
+.action-cloud .category{font-size:0.7rem;letter-spacing:0.25em;opacity:0.2}
+.action-cloud .animate__animated{animation-timing-function:cubic-bezier(0.16,1,0.3,1)}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;width:100%;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;z-index:100;mix-blend-mode:difference}
+nav .logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem;color:#fff;letter-spacing:-0.02em}
+nav .nav-links{display:flex;gap:24px}
+nav .nav-links a{color:#fff;text-decoration:none;font-size:0.85rem;font-weight:500;letter-spacing:0.02em;text-transform:uppercase}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;z-index:1;padding:80px 40px 40px}
+.hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;max-width:1200px;width:100%;align-items:center}
+
+.hero-text{position:relative}
+.hero-text .greeting{font-size:1.1rem;font-weight:500;color:#E85D3A;margin-bottom:16px;display:inline-flex;align-items:center;gap:8px}
+.hero-text .greeting .wave{display:inline-block;animation:wave 2.5s infinite;transform-origin:70% 70%}
+@keyframes wave{0%,100%{transform:rotate(0)}10%{transform:rotate(14deg)}20%{transform:rotate(-8deg)}30%{transform:rotate(14deg)}40%{transform:rotate(-4deg)}50%{transform:rotate(10deg)}60%{transform:rotate(0)}}
+
+.hero-text h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(3rem,6vw,5.5rem);font-weight:700;line-height:1.05;letter-spacing:-0.04em;color:#1a1a1a;margin-bottom:24px}
+.hero-text h1 .highlight{position:relative;display:inline-block}
+.hero-text h1 .highlight::after{content:'';position:absolute;bottom:4px;left:-4px;right:-4px;height:35%;background:#FFE15D;z-index:-1;transform:rotate(-1.5deg);border-radius:4px;animation:highlightIn 0.8s ease 0.5s both}
+@keyframes highlightIn{from{transform:scaleX(0) rotate(-1.5deg);transform-origin:left}to{transform:scaleX(1) rotate(-1.5deg);transform-origin:left}}
+
+.hero-text .tagline{font-size:1.25rem;line-height:1.6;color:#555;max-width:480px;margin-bottom:32px}
+.hero-text .tagline strong{color:#1a1a1a;font-weight:600}
+
+.hero-text .fun-stats{display:flex;gap:24px;margin-bottom:36px;flex-wrap:wrap}
+.fun-stat{background:#fff;border:2px solid #eee;border-radius:16px;padding:16px 20px;text-align:center;transition:all 0.3s ease;cursor:default}
+.fun-stat:hover{transform:translateY(-4px) rotate(-2deg);border-color:#E85D3A;box-shadow:4px 4px 0 #FFE15D}
+.fun-stat .num{font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:700;color:#E85D3A;display:block}
+.fun-stat .label{font-size:0.75rem;color:#888;text-transform:uppercase;letter-spacing:0.05em;margin-top:4px}
+
+.cta-row{display:flex;gap:16px;flex-wrap:wrap}
+.btn{padding:14px 28px;border-radius:50px;font-family:'DM Sans',sans-serif;font-size:0.95rem;font-weight:600;text-decoration:none;transition:all 0.3s ease;cursor:pointer;border:none}
+.btn-primary{background:#E85D3A;color:#fff}
+.btn-primary:hover{background:#d14a29;transform:translateY(-2px);box-shadow:0 8px 24px rgba(232,93,58,0.3)}
+.btn-secondary{background:transparent;color:#1a1a1a;border:2px solid #1a1a1a}
+.btn-secondary:hover{background:#1a1a1a;color:#fff;transform:translateY(-2px)}
+
+/* ── PHOTO ── */
+.hero-photo{position:relative;display:flex;justify-content:center;align-items:center}
+.photo-wrapper{position:relative;width:380px;height:460px}
+.photo-wrapper img{width:100%;height:100%;object-fit:cover;border-radius:24px;position:relative;z-index:2;filter:grayscale(0.1);transition:all 0.4s ease}
+.photo-wrapper:hover img{transform:scale(1.02);filter:grayscale(0)}
+.photo-bg{position:absolute;top:16px;left:16px;width:100%;height:100%;background:#FFE15D;border-radius:24px;z-index:1;transition:all 0.3s ease}
+.photo-wrapper:hover .photo-bg{top:20px;left:20px;background:#E85D3A}
+
+.floating-badge{position:absolute;z-index:3;background:#fff;border-radius:14px;padding:12px 16px;box-shadow:0 8px 32px rgba(0,0,0,0.1);font-size:0.85rem;font-weight:600;animation:floatBadge 3s ease-in-out infinite}
+.floating-badge.top-right{top:-10px;right:-20px;animation-delay:0s}
+.floating-badge.bottom-left{bottom:20px;left:-30px;animation-delay:1.5s}
+.floating-badge .emoji{font-size:1.2rem;margin-right:6px}
+@keyframes floatBadge{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+
+/* ── SCROLL SECTION ── */
+.brands-section{min-height:60vh;padding:80px 40px;position:relative;z-index:1;background:#1a1a1a;overflow:hidden}
+.brands-section .section-header{text-align:center;margin-bottom:60px}
+.brands-section .section-header h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:#fff;letter-spacing:-0.03em;margin-bottom:12px}
+.brands-section .section-header p{color:#999;font-size:1.1rem}
+.brands-section .section-header .fun-arrow{display:inline-block;font-size:2rem;animation:bounce 1.5s infinite;margin-top:8px}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+
+.logo-marquee{display:flex;gap:60px;align-items:center;animation:marquee 20s linear infinite;width:max-content}
+.logo-marquee img{height:44px;opacity:0.5;filter:brightness(0) invert(1);transition:all 0.4s ease}
+.logo-marquee img:hover{opacity:1;transform:scale(1.15)}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.marquee-wrapper{overflow:hidden;padding:20px 0}
+
+/* ── SCROLL ANIMS ── */
+.reveal{opacity:0;transform:translateY(40px);transition:all 0.8s cubic-bezier(0.16,1,0.3,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ── WHAT I DO SECTION ── */
+.what-section{padding:80px 40px;background:#fff;position:relative;z-index:1}
+.what-section .content-max{max-width:1000px;margin:0 auto}
+.what-section h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:#1a1a1a;letter-spacing:-0.03em;margin-bottom:24px}
+.what-section .intro-text{font-size:1.1rem;line-height:1.7;color:#555;margin-bottom:48px;max-width:800px}
+.capability-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px;margin-top:40px}
+.capability-card{background:#f8f5f0;padding:32px;border-radius:16px;transition:all 0.3s ease;border-left:4px solid #E85D3A}
+.capability-card h3{font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:600;color:#1a1a1a;margin-bottom:12px}
+.capability-card p{color:#666;font-size:0.95rem;line-height:1.6}
+.capability-card:hover{transform:translateY(-4px);background:#efe8e0;border-left-color:#FFE15D}
+
+/* ── ARC TIMELINE ── */
+.arc-section{padding:90px 40px;background:#fff;position:relative;z-index:1}
+.arc-section .content-max{max-width:1000px;margin:0 auto}
+.arc-intro{margin-bottom:50px;max-width:900px}
+.arc-intro .eyebrow{display:inline-block;font-family:'Space Grotesk',sans-serif;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.08em;color:#E85D3A;font-weight:700;margin-bottom:12px}
+.arc-intro h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:700;color:#1a1a1a;letter-spacing:-0.03em;margin-bottom:12px}
+.arc-intro-sub{color:#666;font-size:1.05rem;line-height:1.7;max-width:620px}
+
+.timeline{position:relative;padding-left:3.5rem}
+.timeline-line{position:absolute;left:1.15rem;top:0;bottom:0;width:2px;background:rgba(26,26,26,0.12)}
+.timeline-line-fill{position:absolute;top:0;left:0;width:100%;height:0%;background:linear-gradient(180deg,#FFE15D,#E85D3A);transition:height 0.1s linear}
+
+.era{position:relative;margin-bottom:4.5rem;opacity:0;transform:translateY(30px);transition:opacity 0.7s cubic-bezier(0.16,1,0.3,1),transform 0.7s cubic-bezier(0.16,1,0.3,1)}
+.era.visible{opacity:1;transform:translateY(0)}
+.era-marker{position:absolute;left:-3.5rem;top:0;width:2.3rem;height:2.3rem;border-radius:50%;background:#fff;border:2px solid rgba(26,26,26,0.12);display:grid;place-items:center;transition:border-color 0.4s,background 0.4s,box-shadow 0.4s;z-index:2}
+.era.visible .era-marker{border-color:#E85D3A;background:#fff;box-shadow:0 0 0 6px rgba(232,93,58,0.15),0 0 20px rgba(232,93,58,0.18)}
+.era-marker span{font-size:0.7rem;font-weight:700;color:#888;letter-spacing:0.05em;transition:color 0.4s}
+.era.visible .era-marker span{color:#E85D3A}
+
+.era-content{background:#f8f5f0;border:2px solid #fff;border-radius:18px;padding:2rem;box-shadow:0 10px 30px rgba(0,0,0,0.06);transition:border-color 0.4s,box-shadow 0.4s}
+.era.visible .era-content{border-color:#FFEBD5;box-shadow:0 18px 40px rgba(0,0,0,0.1)}
+.era-current .era-content{border-color:#FFE15D;background:linear-gradient(135deg,#fff8e1,#f8f5f0)}
+
+.era-period{font-family:'Space Grotesk',sans-serif;font-size:0.78rem;text-transform:uppercase;letter-spacing:0.08em;color:#E85D3A;font-weight:700}
+.era-content h3{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.5rem,3vw,2.1rem);font-weight:700;margin-top:0.5rem;line-height:1.2;color:#1a1a1a}
+.era-narrative{margin-top:0.9rem;color:#555;max-width:60ch;line-height:1.7}
+.era-logos{display:flex;gap:1.25rem;align-items:center;margin-top:1.25rem;flex-wrap:wrap}
+.era-logos img{height:28px;opacity:0.6;filter:grayscale(0.3);transition:opacity 0.3s,filter 0.3s}
+.era-logos img:hover{opacity:1;filter:grayscale(0)}
+.era-recognition{display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.25rem}
+.era-recognition span{background:rgba(232,93,58,0.1);border:1px solid rgba(232,93,58,0.2);border-radius:999px;padding:0.4rem 0.9rem;font-size:0.82rem;color:#E85D3A}
+.era-tags{list-style:none;display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1.25rem}
+.era-tags li{background:#fff;border:1px solid #eee;border-radius:999px;padding:0.35rem 0.75rem;font-size:0.75rem;color:#666;letter-spacing:0.02em;text-transform:uppercase}
+
+/* ── JOURNEY LAB BASE ── */
+.journey-lab{padding:90px 40px;position:relative;z-index:1}
+.journey-lab .content-max{max-width:1100px;margin:0 auto}
+.journey-header{margin-bottom:50px}
+.journey-label{display:inline-block;padding:6px 14px;border-radius:20px;background:#FFE15D;color:#1a1a1a;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px}
+.journey-header h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:700;color:#1a1a1a;letter-spacing:-0.03em;margin-bottom:12px}
+.journey-header p{color:#666;font-size:1.05rem;line-height:1.7;max-width:760px}
+
+/* ── JOURNEY VARIANT 1: SIGNAL TRAIL ── */
+.journey-signal{background:#fff}
+.signal-track{position:relative;display:grid;gap:36px}
+.signal-track::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,#FFE15D,#E85D3A,#4ECDC4);opacity:0.25;transform:translateX(-50%)}
+.signal-node{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.signal-node .node-card{background:#f8f5f0;border-radius:18px;padding:28px;border:2px solid #fff;box-shadow:0 10px 30px rgba(0,0,0,0.06);transition:all 0.6s cubic-bezier(0.16,1,0.3,1);opacity:0;transform:translateY(30px) rotate(-1deg)}
+.signal-node.in-view .node-card{opacity:1;transform:translateY(0) rotate(0);box-shadow:0 18px 40px rgba(0,0,0,0.12)}
+.signal-node:nth-child(even) .node-card{grid-column:2}
+.signal-node:nth-child(odd) .node-card{grid-column:1}
+.node-dot{position:absolute;left:50%;top:26px;width:16px;height:16px;border-radius:50%;background:#E85D3A;transform:translateX(-50%);box-shadow:0 0 0 10px rgba(232,93,58,0.15);animation:pulse 2.6s ease-in-out infinite}
+.node-meta{font-family:'Space Grotesk',sans-serif;font-size:0.85rem;color:#E85D3A;text-transform:uppercase;letter-spacing:0.05em;font-weight:600}
+.node-card h3{font-family:'Space Grotesk',sans-serif;font-size:1.25rem;font-weight:700;margin:10px 0;color:#1a1a1a}
+.node-card p{color:#555;line-height:1.6;font-size:0.95rem}
+.node-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.node-tags span{background:#fff;border:1px solid #eee;border-radius:20px;padding:6px 12px;font-size:0.75rem;color:#666;text-transform:uppercase;letter-spacing:0.04em}
+
+/* ── JOURNEY VARIANT 2: HORIZONTAL SPECTRUM ── */
+.journey-spectrum{background:linear-gradient(120deg,#fff8e1 0%,#f8f5f0 35%,#f3f0ea 100%);padding:0;height:calc(var(--slides,1) * 100vh);position:relative}
+.journey-spectrum .hijack-viewport{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;align-items:center}
+.journey-spectrum .hijack-header{position:absolute;top:80px;left:80px;z-index:3;max-width:420px;background:rgba(255,255,255,0.85);backdrop-filter:blur(6px);padding:20px 24px;border-radius:18px;box-shadow:0 12px 28px rgba(0,0,0,0.1)}
+.journey-spectrum .hijack-header p{color:#555}
+.hijack-track{display:flex;height:100%;will-change:transform;transition:transform 0.35s ease}
+.hijack-slide{min-width:100vw;height:100%;display:flex;align-items:center;justify-content:center;padding:120px 80px 80px;opacity:0.45;transform:scale(0.96);transition:opacity 0.5s ease,transform 0.5s ease}
+.hijack-slide.is-active{opacity:1;transform:scale(1)}
+.hijack-card{max-width:520px;background:#fff;border-radius:24px;padding:32px 30px;border:1px solid rgba(0,0,0,0.05);box-shadow:0 18px 40px rgba(0,0,0,0.12)}
+.hijack-kicker{font-family:'Space Grotesk',sans-serif;font-size:0.85rem;color:#E85D3A;text-transform:uppercase;letter-spacing:0.08em;font-weight:700}
+.hijack-title{font-family:'Space Grotesk',sans-serif;font-size:1.6rem;font-weight:700;margin:12px 0;color:#1a1a1a}
+.hijack-body{color:#555;line-height:1.7;font-size:1rem}
+.hijack-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.hijack-tags span{background:#f8f5f0;border:1px solid #eee;border-radius:20px;padding:6px 12px;font-size:0.75rem;color:#666;text-transform:uppercase;letter-spacing:0.04em}
+.hijack-progress{position:absolute;right:80px;bottom:60px;z-index:3;font-family:'Space Grotesk',sans-serif;font-size:1rem;color:#1a1a1a;background:rgba(255,255,255,0.7);padding:10px 16px;border-radius:20px;border:1px solid rgba(0,0,0,0.1)}
+.hijack-progress .current{font-weight:700;color:#E85D3A}
+.hijack-progress .divider{margin:0 6px;color:#999}
+
+.hijack-visuals{position:absolute;inset:0;z-index:1;pointer-events:none}
+.visual-item{position:absolute;opacity:0;transform:translateY(20px) scale(0.98);transition:opacity 0.6s ease,transform 0.6s ease}
+.visual-item.is-active{opacity:0.35;transform:translateY(0) scale(1)}
+.visual-year{font-family:'Space Grotesk',sans-serif;font-size:6rem;font-weight:700;color:#E85D3A;opacity:0.25;letter-spacing:-0.04em}
+.visual-word{display:block;font-size:2.5rem;color:#1a1a1a;opacity:0.3;font-weight:600;text-transform:uppercase;letter-spacing:0.2em}
+.visual-ring{position:absolute;width:220px;height:220px;border-radius:50%;border:2px dashed rgba(232,93,58,0.3);top:-40px;left:-40px}
+.visual-spark{position:absolute;width:140px;height:140px;border-radius:24px;background:rgba(255,225,93,0.5);filter:blur(1px);top:20px;right:-20px;transform:rotate(12deg)}
+.v1{top:120px;right:12%}
+.v2{top:40%;left:10%}
+.v3{bottom:18%;right:14%}
+.v4{top:20%;left:55%}
+.v5{bottom:22%;left:18%}
+.v6{top:45%;right:8%}
+
+/* ── JOURNEY VARIANT 3: CONSTELLATION MAP ── */
+.journey-constellation{background:#1a1a1a;color:#fff}
+.journey-constellation .journey-header h2{color:#fff}
+.journey-constellation .journey-header p{color:#bbb}
+.journey-constellation .journey-label{background:#E85D3A;color:#fff}
+.constellation-field{position:relative;min-height:620px;margin-top:40px;padding:20px;border-radius:24px;background:radial-gradient(circle at top,#2a2a2a,#1a1a1a);overflow:hidden}
+.constellation-field::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,0.12) 1px, transparent 1px);background-size:26px 26px;opacity:0.4}
+.constellation-card{position:absolute;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.2);padding:22px;border-radius:16px;width:260px;color:#fff;box-shadow:0 12px 28px rgba(0,0,0,0.35);transition:transform 0.6s ease,border-color 0.6s ease,box-shadow 0.6s ease;transform:translateY(var(--parallax,0px));animation:floaty 6s ease-in-out infinite}
+.constellation-card.in-view{border-color:rgba(255,255,255,0.5);box-shadow:0 18px 36px rgba(0,0,0,0.5)}
+.constellation-card h3{font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;margin:10px 0;color:#fff}
+.constellation-card p{color:#d8d8d8;line-height:1.6;font-size:0.92rem}
+.constellation-card .card-meta{color:#FFE15D}
+.constellation-card .card-tags span{background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);color:#fff}
+.pos-1{top:10px;left:4%;animation-delay:0s}
+.pos-2{top:70px;left:35%;animation-delay:1s}
+.pos-3{top:20px;right:4%;animation-delay:2s}
+.pos-4{top:300px;left:10%;animation-delay:0.5s}
+.pos-5{top:280px;left:45%;animation-delay:1.5s}
+.pos-6{top:320px;right:6%;animation-delay:2.5s}
+
+@keyframes pulse{0%,100%{transform:translateX(-50%) scale(1)}50%{transform:translateX(-50%) scale(1.15)}}
+@keyframes floaty{0%,100%{transform:translateY(var(--parallax,0px))}50%{transform:translateY(calc(var(--parallax,0px) - 10px))}}
+
+/* ── RECOGNITION SECTION ── */
+.recognition-section{padding:80px 40px;background:#f8f5f0;position:relative;z-index:1}
+.recognition-section .content-max{max-width:900px;margin:0 auto;text-align:center}
+.recognition-section h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:#1a1a1a;letter-spacing:-0.03em;margin-bottom:48px}
+.recognition-badges{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px}
+.rec-badge{background:#fff;padding:32px 24px;border-radius:16px;transition:all 0.3s ease;border:2px solid #ffe}
+.rec-badge:hover{border-color:#E85D3A;transform:scale(1.05);box-shadow:0 8px 32px rgba(232,93,58,0.15)}
+.rec-badge .emoji{font-size:2rem;margin-bottom:12px;display:block}
+.rec-badge p{color:#1a1a1a;font-weight:600;font-size:0.95rem}
+
+/* ── ABOUT SECTION ── */
+.about-section{padding:80px 40px;background:#1a1a1a;color:#fff;position:relative;z-index:1}
+.about-section .content-max{max-width:900px;margin:0 auto}
+.about-section h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;letter-spacing:-0.03em;margin-bottom:32px}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;margin-bottom:48px}
+.about-text{line-height:1.8;color:#ccc;font-size:0.95rem}
+.about-text p{margin-bottom:20px}
+.skills-group{margin-bottom:32px}
+.skills-group h3{font-family:'Space Grotesk',sans-serif;font-size:0.9rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:#FFE15D;margin-bottom:12px}
+.skills-tags{display:flex;gap:8px;flex-wrap:wrap}
+.skill-tag{background:#2a2a2a;padding:8px 14px;border-radius:20px;font-size:0.85rem;color:#fff;border:1px solid #3a3a3a}
+.skill-tag:hover{border-color:#E85D3A;background:#E85D3A;color:#fff}
+
+/* ── CONTACT SECTION ── */
+.contact-section{padding:100px 40px;background:#fff;position:relative;z-index:1;text-align:center}
+.contact-section .content-max{max-width:800px;margin:0 auto}
+.contact-section h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.5rem,5vw,3.5rem);font-weight:700;color:#1a1a1a;letter-spacing:-0.03em;margin-bottom:24px}
+.contact-section p{color:#666;font-size:1.1rem;line-height:1.7;margin-bottom:40px}
+.contact-cta{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.contact-cta .btn{padding:16px 32px;font-size:1rem}
+
+/* ── FOOTER ── */
+footer{padding:40px;background:#1a1a1a;color:#888;text-align:center;font-size:0.85rem;position:relative;z-index:1}
+footer a{color:#FFE15D;text-decoration:none;transition:color 0.3s}
+footer a:hover{color:#E85D3A}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;text-align:center}
+  .hero-text .tagline{margin-left:auto;margin-right:auto}
+  .fun-stats{justify-content:center}
+  .cta-row{justify-content:center}
+  .photo-wrapper{width:280px;height:340px;margin:0 auto}
+  .floating-badge.bottom-left{left:0}
+  .action-cloud span{font-size:0.65rem;letter-spacing:0.18em}
+  .about-grid{grid-template-columns:1fr}
+  .timeline{padding-left:2.8rem}
+  .era-marker{left:-2.8rem;width:2rem;height:2rem}
+  .era-content{padding:1.5rem}
+  .signal-track::before{left:12px;transform:none}
+  .signal-node{grid-template-columns:1fr;padding-left:28px}
+  .signal-node:nth-child(even) .node-card{grid-column:1}
+  .signal-node .node-card{padding:22px}
+  .node-dot{left:12px}
+  .journey-spectrum{height:auto}
+  .journey-spectrum .hijack-viewport{position:relative;height:auto;padding:120px 20px 40px}
+  .journey-spectrum .hijack-header{position:relative;top:auto;left:auto;margin:0 0 24px;padding:18px}
+  .hijack-track{flex-direction:column;transform:none !important}
+  .hijack-slide{min-width:100%;height:auto;padding:20px 0 40px;opacity:1;transform:none}
+  .hijack-visuals{display:none}
+  .hijack-progress{position:relative;right:auto;bottom:auto;margin-top:16px}
+  .constellation-field{min-height:auto;display:grid;gap:20px}
+  .constellation-card{position:relative;width:100%;animation:none}
+  .pos-1,.pos-2,.pos-3,.pos-4,.pos-5,.pos-6{top:auto;left:auto;right:auto}
+}
+</style>
+</head>
+<body>
+
+<div class="action-cloud" aria-hidden="true">
+  <span class="category" style="--x:6%;--y:16%;--delay:0s;--duration:16s;--action-color:#FFE15D">Performance &amp; Measurement</span>
+  <span style="--x:15%;--y:30%;--delay:1s;--duration:14s;--action-color:#E85D3A">Optimising CAC</span>
+  <span style="--x:28%;--y:12%;--delay:2s;--duration:15s;--action-color:#4ECDC4">Reducing CPA</span>
+  <span style="--x:40%;--y:26%;--delay:3s;--duration:13s;--action-color:#FF6B9D">Scaling Reach</span>
+  <span style="--x:60%;--y:16%;--delay:4s;--duration:14s;--action-color:#C06BFF">Lifting Consideration</span>
+  <span style="--x:72%;--y:28%;--delay:5s;--duration:16s;--action-color:#45B7D1">Improving Engagement</span>
+  <span style="--x:82%;--y:14%;--delay:6s;--duration:15s;--action-color:#E85D3A">Tracking KPIs</span>
+  <span style="--x:12%;--y:60%;--delay:2.5s;--duration:14s;--action-color:#FFE15D">Monitoring Pacing</span>
+  <span style="--x:30%;--y:70%;--delay:3.5s;--duration:16s;--action-color:#4ECDC4">Reallocating Budgets</span>
+  <span style="--x:48%;--y:64%;--delay:4.5s;--duration:13s;--action-color:#FF6B9D">Tightening Frequency</span>
+  <span style="--x:66%;--y:72%;--delay:5.5s;--duration:15s;--action-color:#C06BFF">Refreshing Audiences</span>
+  <span class="category" style="--x:8%;--y:46%;--delay:1.5s;--duration:16s;--action-color:#45B7D1">Targeting &amp; Audience</span>
+  <span style="--x:18%;--y:82%;--delay:2.2s;--duration:14s;--action-color:#E85D3A">Building Lookalikes</span>
+  <span style="--x:38%;--y:82%;--delay:3.2s;--duration:15s;--action-color:#FFE15D">Refining Targeting</span>
+  <span style="--x:56%;--y:84%;--delay:4.2s;--duration:14s;--action-color:#4ECDC4">Layering Audiences</span>
+  <span style="--x:74%;--y:82%;--delay:5.2s;--duration:16s;--action-color:#FF6B9D">Excluding Wastage</span>
+  <span style="--x:88%;--y:70%;--delay:6.2s;--duration:15s;--action-color:#C06BFF">Testing Cohorts</span>
+  <span class="category" style="--x:76%;--y:44%;--delay:2.8s;--duration:16s;--action-color:#45B7D1">Creative &amp; Cross-Functional</span>
+  <span style="--x:58%;--y:42%;--delay:3.8s;--duration:14s;--action-color:#E85D3A">Aligning Creatives</span>
+  <span style="--x:42%;--y:44%;--delay:4.8s;--duration:13s;--action-color:#FFE15D">Translating Briefs</span>
+  <span style="--x:28%;--y:50%;--delay:5.8s;--duration:15s;--action-color:#4ECDC4">Sharpening Messaging</span>
+  <span style="--x:12%;--y:40%;--delay:6.8s;--duration:16s;--action-color:#FF6B9D">Resolving Blockers</span>
+  <span style="--x:86%;--y:40%;--delay:7.8s;--duration:14s;--action-color:#C06BFF">Reviewing Execution</span>
+</div>
+
+<nav>
+  <div class="logo">SS</div>
+  <div class="nav-links">
+    <a href="#what-i-do">What I Do</a>
+    <a href="#arc">Career Arc</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="greeting"><span class="wave">👋</span> Hi, I'm</div>
+      <h1><span class="highlight">Saumya</span><br>Srivastava</h1>
+      <p class="tagline">I plan where your ads go — and make sure people actually <strong>see them</strong>. 12 years of turning big media budgets into even bigger brand moments.</p>
+      <div class="fun-stats">
+        <div class="fun-stat"><span class="num" data-target="150">0</span><span class="label">Crore+ Managed</span></div>
+        <div class="fun-stat"><span class="num" data-target="12">0</span><span class="label">Years Deep</span></div>
+        <div class="fun-stat"><span class="num" data-target="10">0</span><span class="label">Team Strong</span></div>
+      </div>
+      <div class="cta-row">
+        <a href="#" class="btn btn-primary">Download Resume</a>
+        <a href="#" class="btn btn-secondary">Let's Connect</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <div class="photo-wrapper">
+        <img src="assets/ezgif-7bc3ef05302e9c67.gif" alt="Saumya Srivastava">
+        <div class="photo-bg"></div>
+        <div class="floating-badge top-right"><span class="emoji">🎯</span> Media Planner</div>
+        <div class="floating-badge bottom-left"><span class="emoji">🚀</span> AVP @ Dentsu</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="brands-section" id="brands">
+  <div class="section-header reveal">
+    <h2>Brands I've Had the Pleasure of Spending Money For</h2>
+    <p>Some recognizable names, some seriously fun campaigns.</p>
+    <div class="fun-arrow">↓</div>
+  </div>
+  <div class="marquee-wrapper">
+    <div class="logo-marquee">
+      <img src="assets/logos/lilly.svg" alt="Eli Lilly">
+      <img src="assets/logos/lg.svg" alt="LG">
+      <img src="assets/logos/mccain.svg" alt="McCain">
+      <img src="assets/logos/vivo.svg" alt="Vivo">
+      <img src="assets/logos/hp.svg" alt="HP">
+      <img src="assets/logos/dabur.svg" alt="Dabur">
+      <img src="assets/logos/suzuki.svg" alt="Suzuki">
+      <img src="assets/logos/air-india.svg" alt="Air India">
+      <!-- duplicate for seamless loop -->
+      <img src="assets/logos/lilly.svg" alt="Eli Lilly">
+      <img src="assets/logos/lg.svg" alt="LG">
+      <img src="assets/logos/mccain.svg" alt="McCain">
+      <img src="assets/logos/vivo.svg" alt="Vivo">
+      <img src="assets/logos/hp.svg" alt="HP">
+      <img src="assets/logos/dabur.svg" alt="Dabur">
+      <img src="assets/logos/suzuki.svg" alt="Suzuki">
+      <img src="assets/logos/air-india.svg" alt="Air India">
+    </div>
+  </div>
+</section>
+
+<section class="what-section reveal" id="what-i-do">
+  <div class="content-max">
+    <h2>What I Do</h2>
+    <p class="intro-text">I lead integrated media planning across offline and digital, translating business objectives into channel strategy, investment direction, and execution frameworks. I work closely with creative, influencer, outdoor, and print and digital planning teams to run clear, accountable client conversations and drive consistent delivery.</p>
+    <div class="capability-grid">
+      <div class="capability-card reveal">
+        <h3>🎯 Integrated Planning</h3>
+        <p>Print, OOH, digital, influencer, and retail strategies unified under one strategic umbrella.</p>
+      </div>
+      <div class="capability-card reveal">
+        <h3>📊 Audience Insights</h3>
+        <p>Deep audience planning and insight-led strategy using GWI, Comscore, and Similarweb to make smarter media choices.</p>
+      </div>
+      <div class="capability-card reveal">
+        <h3>🚀 Platform Leadership</h3>
+        <p>Execution leadership across Meta, Google, and major ad ecosystems with proven performance rigor.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="arc-section" id="arc">
+  <div class="content-max">
+    <div class="arc-intro">
+      <p class="eyebrow">Career Arc</p>
+      <h2>Built through intention,<br>not accident.</h2>
+      <p class="arc-intro-sub">Each move was a deliberate bet — on bigger budgets, harder categories, and more strategic altitude. Scroll to trace the progression.</p>
+    </div>
+
+    <div class="timeline" id="timeline">
+      <div class="timeline-line" aria-hidden="true">
+        <div class="timeline-line-fill" id="timelineFill"></div>
+      </div>
+
+      <article class="era" data-era="1">
+        <div class="era-marker"><span>01</span></div>
+        <div class="era-content">
+          <span class="era-period">2014 — Early Career</span>
+          <h3>The Execution Foundation</h3>
+          <p class="era-narrative">
+            Started by trying different parts of marketing to understand what resonated. Moved into affiliate marketing where delivery discipline, optimization habits, and performance rigor were built from the ground up. Every conversion mattered. Every click was accountable.
+          </p>
+          <ul class="era-tags">
+            <li>Performance Marketing</li>
+            <li>Affiliate Systems</li>
+            <li>Conversion Discipline</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="era" data-era="2">
+        <div class="era-marker"><span>02</span></div>
+        <div class="era-content">
+          <span class="era-period">2019 — Crayons Communications</span>
+          <h3>The Planning Spark</h3>
+          <p class="era-narrative">
+            Increasingly drawn to media planning because it sits closer to business decisions and strategy. Made the deliberate shift from tactical execution into strategic planning — using audience insight and channel behavior to shape sharper campaign architecture.
+          </p>
+          <ul class="era-tags">
+            <li>Media Planning</li>
+            <li>Audience Strategy</li>
+            <li>Campaign Architecture</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="era" data-era="3">
+        <div class="era-marker"><span>03</span></div>
+        <div class="era-content">
+          <span class="era-period">2021 — OMD (Omnicom Media Group)</span>
+          <h3>Scaling Into Complexity</h3>
+          <p class="era-narrative">
+            Moved to OMD to work on bigger budgets and sharpen thinking on scale and complexity. Handled HP and Vivo — connecting planning, buying, and reporting into one coherent performance framework at high-stakes budget levels.
+          </p>
+          <div class="era-logos">
+            <img src="assets/logos/hp.svg" alt="HP">
+            <img src="assets/logos/vivo.svg" alt="Vivo">
+          </div>
+          <ul class="era-tags">
+            <li>Consumer Tech</li>
+            <li>Budget Orchestration</li>
+            <li>Cross-Channel Planning</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="era" data-era="4">
+        <div class="era-marker"><span>04</span></div>
+        <div class="era-content">
+          <span class="era-period">2023 — Dentsu / iProspect</span>
+          <h3>Broadening the Portfolio</h3>
+          <p class="era-narrative">
+            Deliberately broadened category exposure by taking on Suzuki two-wheelers, followed by Dabur, and then Eli Lilly. Full-funnel planning with platform fluency across FMCG, pharma, and automotive — operating across teams, channels, and annual business cycles.
+          </p>
+          <div class="era-logos">
+            <img src="assets/logos/suzuki.svg" alt="Suzuki">
+            <img src="assets/logos/dabur.svg" alt="Dabur">
+            <img src="assets/logos/lilly.svg" alt="Eli Lilly">
+          </div>
+          <ul class="era-tags">
+            <li>FMCG</li>
+            <li>Pharma</li>
+            <li>Two-Wheelers</li>
+            <li>Full-Funnel Strategy</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="era" data-era="5">
+        <div class="era-marker"><span>05</span></div>
+        <div class="era-content">
+          <span class="era-period">2024 — Dentsu International</span>
+          <h3>Senior Business Director</h3>
+          <p class="era-narrative">
+            Elevated to Senior Business Director — digital planning across major accounts. Sharpening the integration of insight, strategy, and execution into a single delivery system. Recognized with Dentsu Team and Employee of the Quarter awards.
+          </p>
+          <div class="era-recognition">
+            <span>Team of the Quarter</span>
+            <span>Employee of the Quarter</span>
+          </div>
+          <ul class="era-tags">
+            <li>Digital Strategy</li>
+            <li>Client Leadership</li>
+            <li>Delivery Excellence</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="era era-current" data-era="6">
+        <div class="era-marker"><span>Now</span></div>
+        <div class="era-content">
+          <span class="era-period">2025 — Present</span>
+          <h3>Associate Vice President, Integrated Planning</h3>
+          <p class="era-narrative">
+            Leading integrated planning across offline and digital. Supporting India launch and ongoing integrated campaigns across print, OOH, digital, influencer, and retail. Managing a 10-person team across planning, platform, and ad operations. Today the value is in synthesis — turning business context into channel intelligence, team clarity, and measurable growth.
+          </p>
+          <div class="era-logos">
+            <img src="assets/logos/lilly.svg" alt="Eli Lilly">
+            <img src="assets/logos/lg.svg" alt="LG">
+            <img src="assets/logos/mccain.svg" alt="McCain">
+          </div>
+          <ul class="era-tags">
+            <li>Integrated Planning</li>
+            <li>Team Leadership</li>
+            <li>Multi-Brand Stewardship</li>
+            <li>Offline + Digital</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="recognition-section reveal">
+  <div class="content-max">
+    <h2>Recognition</h2>
+    <div class="recognition-badges">
+      <div class="rec-badge reveal">
+        <div class="emoji">🏆</div>
+        <p>Dentsu Team of the Quarter</p>
+      </div>
+      <div class="rec-badge reveal">
+        <div class="emoji">⭐</div>
+        <p>Dentsu Employee of the Quarter</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about-section reveal">
+  <div class="content-max">
+    <h2>Beyond the Resume</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I'm obsessed with how media decisions translate to real business outcomes. It's why I spend time understanding audience behavior, platform economics, and channel dynamics—not just as an exercise, but as the foundation for strategy that actually moves the needle.</p>
+        <p>When I'm not planning campaigns, you'll find me exploring new markets, diving into data trends, or thinking about how digital and offline can play smarter together.</p>
+      </div>
+      <div>
+        <div class="skills-group">
+          <h3>Core Skills</h3>
+          <div class="skills-tags">
+            <span class="skill-tag">Integrated Planning</span>
+            <span class="skill-tag">Audience Strategy</span>
+            <span class="skill-tag">Digital Planning</span>
+            <span class="skill-tag">Team Leadership</span>
+            <span class="skill-tag">Media Strategy</span>
+          </div>
+        </div>
+        <div class="skills-group">
+          <h3>Tools & Platforms</h3>
+          <div class="skills-tags">
+            <span class="skill-tag">GWI</span>
+            <span class="skill-tag">Comscore</span>
+            <span class="skill-tag">Similarweb</span>
+            <span class="skill-tag">Meta Ads</span>
+            <span class="skill-tag">Google Ads</span>
+          </div>
+        </div>
+        <div class="skills-group">
+          <h3>Languages</h3>
+          <div class="skills-tags">
+            <span class="skill-tag">English (Fluent)</span>
+            <span class="skill-tag">Hindi (Fluent)</span>
+            <span class="skill-tag">Chinese (Intermediate)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact-section reveal" id="contact">
+  <div class="content-max">
+    <h2>Let's Connect</h2>
+    <p>Whether you're exploring media strategy, building integrated campaigns, or just want to chat about marketing—I'm always open to conversations.</p>
+    <div class="contact-cta">
+      <a href="assets/Resume_Saumya%20Srivastava.pdf" class="btn btn-primary">Download Resume</a>
+      <a href="https://linkedin.com/in/" class="btn btn-secondary">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 Saumya Srivastava. Designed and built with intention.</p>
+</footer>
+
+<script>
+// ── Action Cloud punchy zooms ──
+const actionCloud = document.querySelector('.action-cloud');
+if(actionCloud){
+  const spans = Array.from(actionCloud.querySelectorAll('span'));
+  const zoomDuration = 550;
+  const holdDuration = 2000;
+  const spawnInterval = 900;
+  const minVisible = 3;
+  const maxVisible = 4;
+  const active = new Map();
+
+  const getUniquePosition = () => {
+    let x, y, overlap, attempts = 0;
+    const positions = Array.from(active.values());
+    do {
+      x = Math.round(Math.random() * 92 + 4);
+      y = Math.round(Math.random() * 86 + 6);
+      overlap = positions.some(pos => Math.abs(pos.x - x) < 18 && Math.abs(pos.y - y) < 14);
+      attempts++;
+    } while(overlap && attempts < 25);
+    return { x, y };
+  };
+
+  const cleanup = (span) => {
+    span.classList.remove('animate__animated', 'animate__zoomOut', 'animate__fadeOut');
+    span.style.opacity = '0';
+    active.delete(span);
+    if(active.size < minVisible){ spawn(); }
+  };
+
+  const animateItem = (span) => {
+    const pos = getUniquePosition();
+    active.set(span, pos);
+    span.style.setProperty('--x', `${pos.x}%`);
+    span.style.setProperty('--y', `${pos.y}%`);
+
+    span.classList.remove('animate__zoomOut', 'animate__fadeOut');
+    span.classList.add('animate__animated', 'animate__zoomIn', 'animate__fadeIn');
+    span.style.opacity = '1';
+
+    setTimeout(() => {
+      span.classList.remove('animate__zoomIn', 'animate__fadeIn');
+      span.classList.add('animate__zoomOut', 'animate__fadeOut');
+    }, zoomDuration + holdDuration);
+
+    setTimeout(() => cleanup(span), zoomDuration * 2 + holdDuration);
+  };
+
+  const spawn = () => {
+    if(active.size >= maxVisible){ return; }
+    const available = spans.filter(span => !active.has(span));
+    if(!available.length){ return; }
+    const idx = Math.floor(Math.random() * available.length);
+    animateItem(available[idx]);
+  };
+
+  setTimeout(spawn, 0);
+  setTimeout(spawn, 300);
+  setTimeout(spawn, 600);
+  setInterval(spawn, spawnInterval);
+}
+
+// ── Counter animation ──
+const counters = document.querySelectorAll('.fun-stat .num');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      const el = entry.target;
+      const target = +el.dataset.target;
+      let current = 0;
+      const step = target / 40;
+      const timer = setInterval(() => {
+        current += step;
+        if(current >= target){ current = target; clearInterval(timer); }
+        el.textContent = Math.floor(current) + (target >= 100 ? '+' : '+');
+      }, 30);
+      observer.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+counters.forEach(c => observer.observe(c));
+
+// ── Reveal on scroll ──
+const reveals = document.querySelectorAll('.reveal');
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); revealObs.unobserve(e.target); }});
+}, { threshold: 0.2 });
+reveals.forEach(r => revealObs.observe(r));
+
+// ── Arc timeline ──
+const eras = document.querySelectorAll('.era');
+const timeline = document.getElementById('timeline');
+const timelineFill = document.getElementById('timelineFill');
+
+const handleTimelineScroll = () => {
+  if(!timeline || !timelineFill){ return; }
+  const rect = timeline.getBoundingClientRect();
+  const timelineTop = rect.top + window.scrollY;
+  const timelineHeight = rect.height;
+  const scrolled = window.scrollY + window.innerHeight * 0.65 - timelineTop;
+  const progress = Math.max(0, Math.min(1, scrolled / timelineHeight));
+  timelineFill.style.height = `${progress * 100}%`;
+};
+
+const eraObs = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+      eraObs.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+eras.forEach(era => eraObs.observe(era));
+
+// ── Journey animations ──
+const scrollPops = document.querySelectorAll('.scroll-pop');
+const popObs = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('in-view');
+      popObs.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.25 });
+scrollPops.forEach(el => popObs.observe(el));
+
+const hijackSections = document.querySelectorAll('.scroll-hijack');
+const parallaxSections = document.querySelectorAll('.scroll-parallax');
+
+const getProgress = (rect) => {
+  const windowH = window.innerHeight || document.documentElement.clientHeight;
+  const total = rect.height + windowH;
+  return Math.min(1, Math.max(0, (windowH - rect.top) / total));
+};
+
+const updateScrollEffects = () => {
+  hijackSections.forEach(section => {
+    const rect = section.getBoundingClientRect();
+    const viewportH = window.innerHeight || document.documentElement.clientHeight;
+    const totalScroll = Math.max(1, rect.height - viewportH);
+    const scrolled = Math.min(totalScroll, Math.max(0, viewportH - rect.top));
+    const progress = Math.min(1, Math.max(0, scrolled / totalScroll));
+    const slides = parseInt(section.dataset.slides || section.style.getPropertyValue('--slides') || '1', 10);
+    const activeIndex = Math.min(slides - 1, Math.max(0, Math.round(progress * (slides - 1))));
+    section.style.setProperty('--progress', progress.toFixed(3));
+
+    const track = section.querySelector('.hijack-track');
+    if(track){
+      const offset = progress * (slides - 1) * -100;
+      track.style.transform = `translateX(${offset}vw)`;
+    }
+
+    const slideEls = section.querySelectorAll('.hijack-slide');
+    slideEls.forEach((el, index) => {
+      el.classList.toggle('is-active', index === activeIndex);
+    });
+
+    const visuals = section.querySelectorAll('.visual-item');
+    visuals.forEach((el, index) => {
+      const targetIndex = parseInt(el.dataset.index || String(index), 10);
+      el.classList.toggle('is-active', targetIndex === activeIndex);
+    });
+
+    const counter = section.querySelector('.hijack-progress .current');
+    if(counter){
+      counter.textContent = String(activeIndex + 1).padStart(2, '0');
+    }
+  });
+
+  parallaxSections.forEach(section => {
+    const rect = section.getBoundingClientRect();
+    const progress = getProgress(rect);
+    const items = section.querySelectorAll('[data-depth]');
+    items.forEach(item => {
+      const depth = parseFloat(item.dataset.depth || '0.3');
+      const offset = (progress - 0.5) * 80 * depth;
+      item.style.setProperty('--parallax', `${offset}px`);
+    });
+  });
+};
+
+let ticking = false;
+const requestTick = () => {
+  if(ticking){ return; }
+  ticking = true;
+  window.requestAnimationFrame(() => {
+    updateScrollEffects();
+    handleTimelineScroll();
+    ticking = false;
+  });
+};
+window.addEventListener('scroll', requestTick, { passive: true });
+window.addEventListener('resize', requestTick);
+updateScrollEffects();
+handleTimelineScroll();
+
+// ── Entrance animations ──
+document.addEventListener('DOMContentLoaded', () => {
+  const tl = [
+    { el: '.greeting', delay: 200 },
+    { el: 'h1', delay: 400 },
+    { el: '.tagline', delay: 600 },
+    { el: '.fun-stats', delay: 800 },
+    { el: '.cta-row', delay: 1000 },
+    { el: '.photo-wrapper', delay: 500 }
+  ];
+  tl.forEach(({ el, delay }) => {
+    const node = document.querySelector(el);
+    if(node){
+      node.style.opacity = '0';
+      node.style.transform = 'translateY(30px)';
+      node.style.transition = 'all 0.8s cubic-bezier(0.16,1,0.3,1)';
+      setTimeout(() => { node.style.opacity = '1'; node.style.transform = 'translateY(0)'; }, delay);
+    }
+  });
+});
+</script>
+</body>
+</html>
+
