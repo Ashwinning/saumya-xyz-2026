@@ -274,34 +274,37 @@ footer a:hover{color:#E85D3A}
   .constellation-card{position:relative;width:100%;animation:none}
   .pos-1,.pos-2,.pos-3,.pos-4,.pos-5,.pos-6{top:auto;left:auto;right:auto}
 }
+
+@media(max-width:600px){
+  .action-cloud span{font-size:0.55rem;letter-spacing:0.12em}
+  .fun-stat .num{font-size:1.44rem}
+  .fun-stat .label{font-size:0.6rem}
+}
 </style>
 </head>
 <body>
 
 <div class="action-cloud" aria-hidden="true">
-  <span class="category" style="--x:6%;--y:16%;--delay:0s;--duration:16s;--action-color:#FFE15D">Performance &amp; Measurement</span>
+  <span class="category" style="--x:25%;--y:30%;--delay:5.5s;--duration:14s;--action-color:#E85D3A">Performance</span>
+  <span style="--x:15%;--y:30%;--delay:6s;--duration:14s;--action-color:#E85D3A">Measurement</span>
   <span style="--x:15%;--y:30%;--delay:1s;--duration:14s;--action-color:#E85D3A">Optimising CAC</span>
   <span style="--x:28%;--y:12%;--delay:2s;--duration:15s;--action-color:#4ECDC4">Reducing CPA</span>
   <span style="--x:40%;--y:26%;--delay:3s;--duration:13s;--action-color:#FF6B9D">Scaling Reach</span>
   <span style="--x:60%;--y:16%;--delay:4s;--duration:14s;--action-color:#C06BFF">Lifting Consideration</span>
   <span style="--x:72%;--y:28%;--delay:5s;--duration:16s;--action-color:#45B7D1">Improving Engagement</span>
   <span style="--x:82%;--y:14%;--delay:6s;--duration:15s;--action-color:#E85D3A">Tracking KPIs</span>
-  <span style="--x:12%;--y:60%;--delay:2.5s;--duration:14s;--action-color:#FFE15D">Monitoring Pacing</span>
   <span style="--x:30%;--y:70%;--delay:3.5s;--duration:16s;--action-color:#4ECDC4">Reallocating Budgets</span>
   <span style="--x:48%;--y:64%;--delay:4.5s;--duration:13s;--action-color:#FF6B9D">Tightening Frequency</span>
   <span style="--x:66%;--y:72%;--delay:5.5s;--duration:15s;--action-color:#C06BFF">Refreshing Audiences</span>
-  <span class="category" style="--x:8%;--y:46%;--delay:1.5s;--duration:16s;--action-color:#45B7D1">Targeting &amp; Audience</span>
   <span style="--x:18%;--y:82%;--delay:2.2s;--duration:14s;--action-color:#E85D3A">Building Lookalikes</span>
-  <span style="--x:38%;--y:82%;--delay:3.2s;--duration:15s;--action-color:#FFE15D">Refining Targeting</span>
-  <span style="--x:56%;--y:84%;--delay:4.2s;--duration:14s;--action-color:#4ECDC4">Layering Audiences</span>
+  <span style="--x:38%;--y:82%;--delay:1.5s;--duration:15s;--action-color:#FFE15D">Refining Targeting</span>
+  <span style="--x:56%;--y:84%;--delay:1.5s;--duration:14s;--action-color:#4ECDC4">Layering Audiences</span>
   <span style="--x:74%;--y:82%;--delay:5.2s;--duration:16s;--action-color:#FF6B9D">Excluding Wastage</span>
   <span style="--x:88%;--y:70%;--delay:6.2s;--duration:15s;--action-color:#C06BFF">Testing Cohorts</span>
-  <span class="category" style="--x:76%;--y:44%;--delay:2.8s;--duration:16s;--action-color:#45B7D1">Creative &amp; Cross-Functional</span>
-  <span style="--x:58%;--y:42%;--delay:3.8s;--duration:14s;--action-color:#E85D3A">Aligning Creatives</span>
   <span style="--x:42%;--y:44%;--delay:4.8s;--duration:13s;--action-color:#FFE15D">Translating Briefs</span>
   <span style="--x:28%;--y:50%;--delay:5.8s;--duration:15s;--action-color:#4ECDC4">Sharpening Messaging</span>
-  <span style="--x:12%;--y:40%;--delay:6.8s;--duration:16s;--action-color:#FF6B9D">Resolving Blockers</span>
-  <span style="--x:86%;--y:40%;--delay:7.8s;--duration:14s;--action-color:#C06BFF">Reviewing Execution</span>
+  <span style="--x:12%;--y:40%;--delay:1.5s;--duration:16s;--action-color:#FF6B9D">Resolving Blockers</span>
+  <span style="--x:86%;--y:40%;--delay:1s;--duration:14s;--action-color:#C06BFF">Reviewing Execution</span>
 </div>
 
 <nav>
@@ -317,20 +320,20 @@ footer a:hover{color:#E85D3A}
   <div class="hero-inner">
     <div class="hero-text">
       <div class="greeting"><span class="wave">👋</span> Hi, I'm</div>
-      <h1><span class="highlight">Saumya</span><br>Srivastava</h1>
-      <p class="tagline">I plan where your ads go — and make sure people actually <strong>see them</strong>. 12 years of turning big media budgets into even bigger brand moments.</p>
+      <h1><span class="highlight cloud-guard">Saumya</span><br><span class="cloud-guard">Srivastava</span></h1>
+      <p class="tagline cloud-guard">I plan where your ads go — and make sure people actually <strong>see them</strong>. 12 years of turning big media budgets into even bigger brand moments.</p>
       <div class="fun-stats">
         <div class="fun-stat"><span class="num" data-target="150">0</span><span class="label">Crore+ Managed</span></div>
         <div class="fun-stat"><span class="num" data-target="12">0</span><span class="label">Years Deep</span></div>
         <div class="fun-stat"><span class="num" data-target="10">0</span><span class="label">Team Strong</span></div>
       </div>
       <div class="cta-row">
-        <a href="#" class="btn btn-primary">Download Resume</a>
-        <a href="#" class="btn btn-secondary">Let's Connect</a>
+        <a href="#" class="btn btn-primary cloud-guard">Download Resume</a>
+        <a href="#" class="btn btn-secondary cloud-guard">Let's Connect</a>
       </div>
     </div>
     <div class="hero-photo">
-      <div class="photo-wrapper">
+      <div class="photo-wrapper cloud-guard">
         <img src="assets/ezgif-7bc3ef05302e9c67.gif" alt="Saumya Srivastava">
         <div class="photo-bg"></div>
         <div class="floating-badge top-right"><span class="emoji">🎯</span> Media Planner</div>
@@ -349,8 +352,8 @@ footer a:hover{color:#E85D3A}
   <div class="marquee-wrapper">
     <div class="logo-marquee">
       <img src="assets/logos/lilly.svg" alt="Eli Lilly">
-      <img src="assets/logos/lg.svg" alt="LG">
-      <img src="assets/logos/mccain.svg" alt="McCain">
+      <img src="assets/logos/LG-2.png" alt="LG">
+      <img src="assets/logos/maccain-2.png" alt="McCain">
       <img src="assets/logos/vivo.svg" alt="Vivo">
       <img src="assets/logos/hp.svg" alt="HP">
       <img src="assets/logos/dabur.svg" alt="Dabur">
@@ -358,8 +361,8 @@ footer a:hover{color:#E85D3A}
       <img src="assets/logos/air-india.svg" alt="Air India">
       <!-- duplicate for seamless loop -->
       <img src="assets/logos/lilly.svg" alt="Eli Lilly">
-      <img src="assets/logos/lg.svg" alt="LG">
-      <img src="assets/logos/mccain.svg" alt="McCain">
+      <img src="assets/logos/LG-2.png" alt="LG">
+      <img src="assets/logos/maccain-2.png" alt="McCain">
       <img src="assets/logos/vivo.svg" alt="Vivo">
       <img src="assets/logos/hp.svg" alt="HP">
       <img src="assets/logos/dabur.svg" alt="Dabur">
@@ -607,15 +610,66 @@ if(actionCloud){
   const maxVisible = 4;
   const active = new Map();
 
-  const getUniquePosition = () => {
-    let x, y, overlap, attempts = 0;
+  const getProtectedRects = () => {
+    const guards = document.querySelectorAll('.cloud-guard');
+    return Array.from(guards)
+      .map(el => el.getBoundingClientRect())
+      .filter(rect => rect.width && rect.height);
+  };
+
+  const isBlockedPosition = (x, y, span) => {
+    const protectedRects = getProtectedRects();
+    if(!protectedRects.length){ return false; }
+    const spanRect = span.getBoundingClientRect();
+    const spanW = spanRect.width || 120;
+    const spanH = spanRect.height || 24;
+    const left = (x / 100) * window.innerWidth;
+    const top = (y / 100) * window.innerHeight;
+    const candidate = { left, top, right: left + spanW, bottom: top + spanH };
+    const pad = 18;
+
+    return protectedRects.some(rect => {
+      const expanded = {
+        left: rect.left - pad,
+        top: rect.top - pad,
+        right: rect.right + pad,
+        bottom: rect.bottom + pad
+      };
+      return candidate.left < expanded.right &&
+        candidate.right > expanded.left &&
+        candidate.top < expanded.bottom &&
+        candidate.bottom > expanded.top;
+    });
+  };
+
+  const getUniquePosition = (span) => {
+    let x, y, overlap, blocked, attempts = 0;
     const positions = Array.from(active.values());
+    const isMobile = window.innerWidth <= 600;
+    const spanRect = span.getBoundingClientRect();
+    const spanW = spanRect.width || 120;
+    const spanH = spanRect.height || 24;
+    const pad = 8;
+    const minX = 4;
+    const minY = 6;
+    const maxX = isMobile
+      ? Math.max(minX, ((window.innerWidth - spanW - pad) / window.innerWidth) * 100)
+      : 92;
+    const maxY = isMobile
+      ? Math.max(minY, ((window.innerHeight - spanH - pad) / window.innerHeight) * 100)
+      : 86;
+
     do {
-      x = Math.round(Math.random() * 92 + 4);
-      y = Math.round(Math.random() * 86 + 6);
+      x = Math.round(Math.random() * (maxX - minX) + minX);
+      y = Math.round(Math.random() * (maxY - minY) + minY);
       overlap = positions.some(pos => Math.abs(pos.x - x) < 18 && Math.abs(pos.y - y) < 14);
+      blocked = isBlockedPosition(x, y, span);
       attempts++;
-    } while(overlap && attempts < 25);
+    } while((overlap || blocked) && attempts < 40);
+
+    if(overlap || blocked){
+      return null;
+    }
     return { x, y };
   };
 
@@ -627,7 +681,8 @@ if(actionCloud){
   };
 
   const animateItem = (span) => {
-    const pos = getUniquePosition();
+    const pos = getUniquePosition(span);
+    if(!pos){ return; }
     active.set(span, pos);
     span.style.setProperty('--x', `${pos.x}%`);
     span.style.setProperty('--y', `${pos.y}%`);
@@ -811,6 +866,14 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => { node.style.opacity = '1'; node.style.transform = 'translateY(0)'; }, delay);
     }
   });
+
+  // Add cloud-guard to fun-stat elements on mobile
+  if(window.innerWidth <= 600){
+    const funStats = document.querySelectorAll('.fun-stat');
+    funStats.forEach(stat => {
+      stat.classList.add('cloud-guard');
+    });
+  }
 });
 </script>
 </body>
