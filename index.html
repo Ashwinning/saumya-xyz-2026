@@ -219,18 +219,139 @@ nav .nav-links a{color:#fff;text-decoration:none;font-size:0.85rem;font-weight:5
 .rec-badge .emoji{font-size:2rem;margin-bottom:12px;display:block}
 .rec-badge p{color:#1a1a1a;font-weight:600;font-size:0.95rem}
 
-/* ── ABOUT SECTION ── */
-.about-section{padding:80px 40px;background:#1a1a1a;color:#fff;position:relative;z-index:1}
-.about-section .content-max{max-width:900px;margin:0 auto}
-.about-section h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;letter-spacing:-0.03em;margin-bottom:32px}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;margin-bottom:48px}
-.about-text{line-height:1.8;color:#ccc;font-size:0.95rem}
-.about-text p{margin-bottom:20px}
-.skills-group{margin-bottom:32px}
-.skills-group h3{font-family:'Space Grotesk',sans-serif;font-size:0.9rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:#FFE15D;margin-bottom:12px}
-.skills-tags{display:flex;gap:8px;flex-wrap:wrap}
-.skill-tag{background:#2a2a2a;padding:8px 14px;border-radius:20px;font-size:0.85rem;color:#fff;border:1px solid #3a3a3a}
-.skill-tag:hover{border-color:#E85D3A;background:#E85D3A;color:#fff}
+/* ── BEYOND SECTION (ROWS FOOTER INSPIRED) ── */
+.about-section{
+  padding:88px 0 44px;
+  position:relative;
+  z-index:1;
+  background:#f3f0e8;
+  border-top:1px solid #e6e0d3;
+  border-bottom:1px solid #e6e0d3;
+  overflow:hidden
+}
+.about-section::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background-image:
+    repeating-linear-gradient(to right, rgba(82,64,72,0.1) 0 1px, transparent 1px 170px),
+    repeating-linear-gradient(to bottom, rgba(82,64,72,0.1) 0 1px, transparent 1px 72px);
+  pointer-events:none
+}
+.beyond-shell{position:relative;z-index:1;max-width:1160px;margin:0 auto;padding:0 32px}
+.beyond-hero{
+  background:#d9d6cf;
+  border:1px solid #d2cec4;
+  min-height:250px;
+  padding:42px 56px;
+  display:grid;
+  grid-template-columns:1.15fr 1fr;
+  align-items:center;
+  gap:28px
+}
+.beyond-kicker{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:clamp(2.15rem,4.5vw,4rem);
+  line-height:1.03;
+  letter-spacing:-0.03em;
+  color:#260028;
+  margin-bottom:22px
+}
+.beyond-cta{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  font-weight:700;
+  font-size:2rem;
+  color:#28002a;
+  background:#ffd100;
+  border:1px solid #f1c400;
+  min-width:184px;
+  height:50px;
+  transition:all 0.25s ease
+}
+.beyond-cta:hover{transform:translateY(-2px);box-shadow:0 10px 20px rgba(32,0,37,0.12)}
+.beyond-doodle{justify-self:end;position:relative;width:360px;max-width:100%;aspect-ratio:16/9}
+.beyond-sheet{
+  position:absolute;
+  right:18px;
+  top:8px;
+  width:210px;
+  height:128px;
+  border:4px solid #3c113a;
+  border-radius:6px;
+  transform:rotate(-13deg);
+  background:
+    repeating-linear-gradient(to right,transparent 0 32px,rgba(60,17,58,0.35) 32px 34px),
+    repeating-linear-gradient(to bottom,transparent 0 22px,rgba(60,17,58,0.35) 22px 24px),
+    linear-gradient(140deg,#ffd100 0 22%,#fff 22% 78%,#ffd7c8 78%)
+}
+.beyond-orbit{
+  position:absolute;
+  width:16px;
+  height:16px;
+  border-radius:50%;
+  background:#ffd100;
+  border:3px solid #3c113a
+}
+.beyond-orbit.left{left:8px;top:86px}
+.beyond-orbit.right{right:0;top:30px}
+.beyond-spark{
+  position:absolute;
+  left:110px;
+  top:95px;
+  font-size:2.2rem;
+  line-height:1;
+  color:#ffd100;
+  text-shadow:-2px -2px 0 #3c113a,2px 2px 0 #3c113a
+}
+.beyond-grid{
+  margin-top:36px;
+  border-top:1px solid #dcd6c8;
+  background:#f3f0e8;
+  display:grid;
+  grid-template-columns:1.45fr 1fr 1fr 1fr 1fr
+}
+.beyond-cell{
+  min-height:52px;
+  border-top:1px solid #dcd6c8;
+  border-left:1px solid #dcd6c8;
+  padding:10px 14px 8px;
+  color:#3a032d;
+  text-decoration:none;
+  font-weight:500;
+  font-size:1.08rem;
+  line-height:1.25;
+  display:flex;
+  align-items:flex-start;
+  transition:background-color 0.16s ease, box-shadow 0.16s ease
+}
+.beyond-grid .beyond-cell:nth-child(5n+1){border-left:none}
+.beyond-cell:not(.empty):hover{
+  background:#f4f0e7;
+  box-shadow:inset 0 0 0 1px #efd157
+}
+.beyond-head{
+  min-height:84px;
+  padding-top:16px;
+  font-family:'Space Grotesk',sans-serif;
+  font-size:2.75rem;
+  font-weight:700;
+  letter-spacing:-0.03em;
+  line-height:1.02
+}
+.beyond-head.small{
+  font-size:2rem;
+  letter-spacing:-0.015em;
+  line-height:1.15
+}
+.beyond-meta{
+  color:#857281;
+  font-size:0.9rem;
+  font-weight:600
+}
+.beyond-cell.empty{pointer-events:none}
 
 /* ── CONTACT SECTION ── */
 .contact-section{padding:100px 40px;background:#fff;position:relative;z-index:1;text-align:center}
@@ -254,7 +375,6 @@ footer a:hover{color:#E85D3A}
   .photo-wrapper{width:280px;height:340px;margin:0 auto}
   .floating-badge.bottom-left{left:0}
   .action-cloud span{font-size:0.65rem;letter-spacing:0.18em}
-  .about-grid{grid-template-columns:1fr}
   .timeline{padding-left:2.8rem}
   .era-marker{left:-2.8rem;width:2rem;height:2rem}
   .era-content{padding:1.5rem}
@@ -273,12 +393,29 @@ footer a:hover{color:#E85D3A}
   .constellation-field{min-height:auto;display:grid;gap:20px}
   .constellation-card{position:relative;width:100%;animation:none}
   .pos-1,.pos-2,.pos-3,.pos-4,.pos-5,.pos-6{top:auto;left:auto;right:auto}
+  .beyond-shell{padding:0 20px}
+  .beyond-hero{padding:34px 26px;grid-template-columns:1fr}
+  .beyond-doodle{justify-self:start}
+  .beyond-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .beyond-grid .beyond-cell:nth-child(5n+1){border-left:1px solid #dcd6c8}
+  .beyond-grid .beyond-cell:nth-child(2n+1){border-left:none}
+  .beyond-head{font-size:2.2rem}
+  .beyond-head.small{font-size:1.55rem}
+  .beyond-cell{font-size:1rem}
 }
 
 @media(max-width:600px){
   .action-cloud span{font-size:0.55rem;letter-spacing:0.12em}
   .fun-stat .num{font-size:1.44rem}
   .fun-stat .label{font-size:0.6rem}
+  .about-section{padding:74px 0 34px}
+  .beyond-kicker{font-size:2rem}
+  .beyond-cta{height:46px;min-width:168px;font-size:1rem}
+  .beyond-doodle{width:260px}
+  .beyond-grid{grid-template-columns:1fr}
+  .beyond-grid .beyond-cell{border-left:none}
+  .beyond-head{min-height:66px}
+  .beyond-head.small{min-height:60px}
 }
 </style>
 </head>
@@ -541,44 +678,56 @@ footer a:hover{color:#E85D3A}
   </div>
 </section>
 
-<section class="about-section reveal">
-  <div class="content-max">
-    <h2>Beyond the Resume</h2>
-    <div class="about-grid">
-      <div class="about-text">
-        <p>I'm obsessed with how media decisions translate to real business outcomes. It's why I spend time understanding audience behavior, platform economics, and channel dynamics—not just as an exercise, but as the foundation for strategy that actually moves the needle.</p>
-        <p>When I'm not planning campaigns, you'll find me exploring new markets, diving into data trends, or thinking about how digital and offline can play smarter together.</p>
-      </div>
+<section class="about-section reveal" aria-label="Beyond the Resume">
+  <div class="beyond-shell">
+    <div class="beyond-hero">
       <div>
-        <div class="skills-group">
-          <h3>Core Skills</h3>
-          <div class="skills-tags">
-            <span class="skill-tag">Integrated Planning</span>
-            <span class="skill-tag">Audience Strategy</span>
-            <span class="skill-tag">Digital Planning</span>
-            <span class="skill-tag">Team Leadership</span>
-            <span class="skill-tag">Media Strategy</span>
-          </div>
-        </div>
-        <div class="skills-group">
-          <h3>Tools & Platforms</h3>
-          <div class="skills-tags">
-            <span class="skill-tag">GWI</span>
-            <span class="skill-tag">Comscore</span>
-            <span class="skill-tag">Similarweb</span>
-            <span class="skill-tag">Meta Ads</span>
-            <span class="skill-tag">Google Ads</span>
-          </div>
-        </div>
-        <div class="skills-group">
-          <h3>Languages</h3>
-          <div class="skills-tags">
-            <span class="skill-tag">English (Fluent)</span>
-            <span class="skill-tag">Hindi (Fluent)</span>
-            <span class="skill-tag">Chinese (Intermediate)</span>
-          </div>
-        </div>
+        <h2 class="beyond-kicker">Beyond the Resume</h2>
+        <a class="beyond-cta" href="#contact">Let's connect</a>
       </div>
+      <div class="beyond-doodle" aria-hidden="true">
+        <div class="beyond-sheet"></div>
+        <div class="beyond-orbit left"></div>
+        <div class="beyond-orbit right"></div>
+        <div class="beyond-spark">✦</div>
+      </div>
+    </div>
+    <div class="beyond-grid" role="list">
+      <div class="beyond-cell beyond-head">Saumya</div>
+      <div class="beyond-cell beyond-head small">Core Skills</div>
+      <div class="beyond-cell beyond-head small">Tools & Platforms</div>
+      <div class="beyond-cell beyond-head small">Languages</div>
+      <div class="beyond-cell beyond-head small">Beyond Work</div>
+
+      <div class="beyond-cell beyond-meta">2026, Saumya © Copyright</div>
+      <a class="beyond-cell" href="#what-i-do">Integrated Planning</a>
+      <a class="beyond-cell" href="#what-i-do">GWI</a>
+      <a class="beyond-cell" href="#arc">English (Fluent)</a>
+      <a class="beyond-cell" href="#arc">Audience behavior</a>
+
+      <div class="beyond-cell empty" aria-hidden="true"></div>
+      <a class="beyond-cell" href="#what-i-do">Audience Strategy</a>
+      <a class="beyond-cell" href="#what-i-do">Comscore</a>
+      <a class="beyond-cell" href="#arc">Hindi (Fluent)</a>
+      <a class="beyond-cell" href="#arc">Platform economics</a>
+
+      <div class="beyond-cell empty" aria-hidden="true"></div>
+      <a class="beyond-cell" href="#what-i-do">Digital Planning</a>
+      <a class="beyond-cell" href="#what-i-do">Similarweb</a>
+      <a class="beyond-cell" href="#arc">Chinese (Intermediate)</a>
+      <a class="beyond-cell" href="#arc">Channel dynamics</a>
+
+      <div class="beyond-cell empty" aria-hidden="true"></div>
+      <a class="beyond-cell" href="#arc">Media Strategy</a>
+      <a class="beyond-cell" href="#what-i-do">Meta Ads</a>
+      <div class="beyond-cell empty" aria-hidden="true"></div>
+      <a class="beyond-cell" href="#contact">Real business outcomes</a>
+
+      <div class="beyond-cell empty" aria-hidden="true"></div>
+      <div class="beyond-cell empty" aria-hidden="true"></div>
+      <a class="beyond-cell" href="#what-i-do">Google Ads</a>
+      <div class="beyond-cell empty" aria-hidden="true"></div>
+      <div class="beyond-cell empty" aria-hidden="true"></div>
     </div>
   </div>
 </section>
@@ -878,4 +1027,3 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 </body>
 </html>
-
