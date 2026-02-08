@@ -358,6 +358,48 @@ nav .nav-links a{color:#fff;text-decoration:none;font-size:0.85rem;font-weight:5
 }
 .beyond-cell.empty{pointer-events:none}
 .beyond-cell.edge-cell{background:#f3f0e8}
+.beyond-mobile{display:none}
+.beyond-mobile-title{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:clamp(2rem,8vw,2.4rem);
+  font-weight:700;
+  letter-spacing:-0.03em;
+  color:#3a032d;
+  margin:0 0 14px
+}
+.beyond-mobile-grid{display:grid;gap:12px}
+.beyond-mobile-card{
+  background:#f8f5ee;
+  border:1px solid #dcd6c8;
+  padding:14px 14px 12px
+}
+.beyond-mobile-card h3{
+  margin:0 0 10px;
+  font-family:'Space Grotesk',sans-serif;
+  font-size:1.2rem;
+  line-height:1.1;
+  letter-spacing:-0.02em;
+  color:#3a032d
+}
+.beyond-mobile-card ul{
+  margin:0;
+  padding:0;
+  list-style:none;
+  display:grid;
+  gap:8px
+}
+.beyond-mobile-card li{
+  min-height:36px;
+  border:1px solid #dcd6c8;
+  padding:8px 10px;
+  font-size:0.96rem;
+  line-height:1.2;
+  color:#3a032d;
+  transition:box-shadow 0.16s ease
+}
+.beyond-mobile-card li:hover{
+  box-shadow:inset 0 0 0 2px #217346
+}
 
 /* ── CONTACT SECTION ── */
 .contact-section{padding:100px 40px;background:#fff;position:relative;z-index:1;text-align:center}
@@ -419,9 +461,9 @@ footer a:hover{color:#E85D3A}
   .beyond-kicker{font-size:2rem}
   .beyond-cta{height:46px;min-width:168px;font-size:1rem}
   .beyond-doodle{width:260px}
-  .beyond-grid{
-    grid-template-columns:minmax(6px,1fr) minmax(220px,calc(var(--core-unit) * 1.45)) repeat(4,minmax(160px,var(--core-unit))) minmax(6px,1fr)
-  }
+  .beyond-grid{display:none}
+  .beyond-mobile{display:block}
+  .beyond-mobile-grid{grid-template-columns:1fr}
   .beyond-head{min-height:66px}
   .beyond-head.small{min-height:60px}
 }
@@ -736,6 +778,47 @@ footer a:hover{color:#E85D3A}
       <div class="beyond-cell empty" aria-hidden="true"></div>
       <div class="beyond-cell empty" aria-hidden="true"></div>
       <div class="beyond-cell empty edge-cell" aria-hidden="true"></div>
+    </div>
+    <div class="beyond-mobile" aria-label="Beyond the Resume Mobile Layout">
+      <h2 class="beyond-mobile-title">Beyond the Resume</h2>
+      <div class="beyond-mobile-grid">
+        <article class="beyond-mobile-card">
+          <h3>Core Skills</h3>
+          <ul>
+            <li>Integrated Planning</li>
+            <li>Audience Strategy</li>
+            <li>Digital Planning</li>
+            <li>Media Strategy</li>
+          </ul>
+        </article>
+        <article class="beyond-mobile-card">
+          <h3>Tools & Platforms</h3>
+          <ul>
+            <li>GWI</li>
+            <li>Comscore</li>
+            <li>Similarweb</li>
+            <li>Meta Ads</li>
+            <li>Google Ads</li>
+          </ul>
+        </article>
+        <article class="beyond-mobile-card">
+          <h3>Languages</h3>
+          <ul>
+            <li>English (Fluent)</li>
+            <li>Hindi (Fluent)</li>
+            <li>Chinese (Intermediate)</li>
+          </ul>
+        </article>
+        <article class="beyond-mobile-card">
+          <h3>Beyond Work</h3>
+          <ul>
+            <li>Audience behavior</li>
+            <li>Platform economics</li>
+            <li>Channel dynamics</li>
+            <li>Real business outcomes</li>
+          </ul>
+        </article>
+      </div>
     </div>
   </div>
 </section>
