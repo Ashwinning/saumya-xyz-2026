@@ -225,18 +225,11 @@ nav .nav-links a{color:#fff;text-decoration:none;font-size:0.85rem;font-weight:5
   position:relative;
   z-index:1;
   background:#f3f0e8;
+  --core-width:min(1160px, calc(100vw - 40px));
+  --core-unit:calc(var(--core-width) / 5.45);
   border-top:1px solid #e6e0d3;
   border-bottom:1px solid #e6e0d3;
   overflow:hidden
-}
-.about-section::before{
-  content:'';
-  position:absolute;
-  inset:0;
-  background-image:
-    repeating-linear-gradient(to right, rgba(82,64,72,0.1) 0 1px, transparent 1px 170px),
-    repeating-linear-gradient(to bottom, rgba(82,64,72,0.1) 0 1px, transparent 1px 72px);
-  pointer-events:none
 }
 .beyond-shell{position:relative;z-index:1;max-width:1160px;margin:0 auto;padding:0 32px}
 .beyond-hero{
@@ -311,7 +304,9 @@ nav .nav-links a{color:#fff;text-decoration:none;font-size:0.85rem;font-weight:5
   border-top:1px solid #dcd6c8;
   background:#f3f0e8;
   display:grid;
-  grid-template-columns:1.45fr 1fr 1fr 1fr 1fr
+  width:100vw;
+  margin-left:calc(50% - 50vw);
+  grid-template-columns:minmax(20px,1fr) calc(var(--core-unit) * 1.45) repeat(4, var(--core-unit)) minmax(20px,1fr)
 }
 .beyond-cell{
   min-height:52px;
@@ -325,12 +320,22 @@ nav .nav-links a{color:#fff;text-decoration:none;font-size:0.85rem;font-weight:5
   line-height:1.25;
   display:flex;
   align-items:flex-start;
+  position:relative;
   transition:background-color 0.16s ease, box-shadow 0.16s ease
 }
-.beyond-grid .beyond-cell:nth-child(5n+1){border-left:none}
+.beyond-grid .beyond-cell:nth-child(7n+1){border-left:none}
 .beyond-cell:not(.empty):hover{
-  background:#f4f0e7;
-  box-shadow:inset 0 0 0 1px #efd157
+  background:transparent;
+  box-shadow:inset 0 0 0 2px #217346
+}
+.beyond-cell:not(.empty):hover::after{
+  content:"";
+  position:absolute;
+  width:7px;
+  height:7px;
+  right:-1px;
+  bottom:-1px;
+  background:#217346;
 }
 .beyond-head{
   min-height:84px;
@@ -352,6 +357,7 @@ nav .nav-links a{color:#fff;text-decoration:none;font-size:0.85rem;font-weight:5
   font-weight:600
 }
 .beyond-cell.empty{pointer-events:none}
+.beyond-cell.edge-cell{background:#f3f0e8}
 
 /* ── CONTACT SECTION ── */
 .contact-section{padding:100px 40px;background:#fff;position:relative;z-index:1;text-align:center}
@@ -396,9 +402,10 @@ footer a:hover{color:#E85D3A}
   .beyond-shell{padding:0 20px}
   .beyond-hero{padding:34px 26px;grid-template-columns:1fr}
   .beyond-doodle{justify-self:start}
-  .beyond-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .beyond-grid .beyond-cell:nth-child(5n+1){border-left:1px solid #dcd6c8}
-  .beyond-grid .beyond-cell:nth-child(2n+1){border-left:none}
+  .beyond-grid{
+    grid-template-columns:minmax(8px,1fr) minmax(240px,calc(var(--core-unit) * 1.45)) repeat(4,minmax(180px,var(--core-unit))) minmax(8px,1fr);
+    overflow-x:auto
+  }
   .beyond-head{font-size:2.2rem}
   .beyond-head.small{font-size:1.55rem}
   .beyond-cell{font-size:1rem}
@@ -412,8 +419,9 @@ footer a:hover{color:#E85D3A}
   .beyond-kicker{font-size:2rem}
   .beyond-cta{height:46px;min-width:168px;font-size:1rem}
   .beyond-doodle{width:260px}
-  .beyond-grid{grid-template-columns:1fr}
-  .beyond-grid .beyond-cell{border-left:none}
+  .beyond-grid{
+    grid-template-columns:minmax(6px,1fr) minmax(220px,calc(var(--core-unit) * 1.45)) repeat(4,minmax(160px,var(--core-unit))) minmax(6px,1fr)
+  }
   .beyond-head{min-height:66px}
   .beyond-head.small{min-height:60px}
 }
@@ -678,56 +686,56 @@ footer a:hover{color:#E85D3A}
   </div>
 </section>
 
-<section class="about-section reveal" aria-label="Beyond the Resume">
+<section class="about-section" aria-label="Beyond the Resume">
   <div class="beyond-shell">
-    <div class="beyond-hero">
-      <div>
-        <h2 class="beyond-kicker">Beyond the Resume</h2>
-        <a class="beyond-cta" href="#contact">Let's connect</a>
-      </div>
-      <div class="beyond-doodle" aria-hidden="true">
-        <div class="beyond-sheet"></div>
-        <div class="beyond-orbit left"></div>
-        <div class="beyond-orbit right"></div>
-        <div class="beyond-spark">✦</div>
-      </div>
-    </div>
     <div class="beyond-grid" role="list">
-      <div class="beyond-cell beyond-head">Saumya</div>
+      <div class="beyond-cell empty edge-cell" aria-hidden="true"></div>
+      <div class="beyond-cell beyond-head">Beyond the Resume</div>
       <div class="beyond-cell beyond-head small">Core Skills</div>
       <div class="beyond-cell beyond-head small">Tools & Platforms</div>
       <div class="beyond-cell beyond-head small">Languages</div>
       <div class="beyond-cell beyond-head small">Beyond Work</div>
+      <div class="beyond-cell empty edge-cell" aria-hidden="true"></div>
 
-      <div class="beyond-cell beyond-meta">2026, Saumya © Copyright</div>
-      <a class="beyond-cell" href="#what-i-do">Integrated Planning</a>
-      <a class="beyond-cell" href="#what-i-do">GWI</a>
-      <a class="beyond-cell" href="#arc">English (Fluent)</a>
-      <a class="beyond-cell" href="#arc">Audience behavior</a>
+      <div class="beyond-cell empty edge-cell" aria-hidden="true"></div>
+      <div class="beyond-cell empty" aria-hidden="true"></div>
+      <div class="beyond-cell">Integrated Planning</div>
+      <div class="beyond-cell">GWI</div>
+      <div class="beyond-cell">English (Fluent)</div>
+      <div class="beyond-cell">Audience behavior</div>
+      <div class="beyond-cell empty edge-cell" aria-hidden="true"></div>
 
+      <div class="beyond-cell empty edge-cell" aria-hidden="true"></div>
       <div class="beyond-cell empty" aria-hidden="true"></div>
-      <a class="beyond-cell" href="#what-i-do">Audience Strategy</a>
-      <a class="beyond-cell" href="#what-i-do">Comscore</a>
-      <a class="beyond-cell" href="#arc">Hindi (Fluent)</a>
-      <a class="beyond-cell" href="#arc">Platform economics</a>
+      <div class="beyond-cell">Audience Strategy</div>
+      <div class="beyond-cell">Comscore</div>
+      <div class="beyond-cell">Hindi (Fluent)</div>
+      <div class="beyond-cell">Platform economics</div>
+      <div class="beyond-cell empty edge-cell" aria-hidden="true"></div>
 
+      <div class="beyond-cell empty edge-cell" aria-hidden="true"></div>
       <div class="beyond-cell empty" aria-hidden="true"></div>
-      <a class="beyond-cell" href="#what-i-do">Digital Planning</a>
-      <a class="beyond-cell" href="#what-i-do">Similarweb</a>
-      <a class="beyond-cell" href="#arc">Chinese (Intermediate)</a>
-      <a class="beyond-cell" href="#arc">Channel dynamics</a>
+      <div class="beyond-cell">Digital Planning</div>
+      <div class="beyond-cell">Similarweb</div>
+      <div class="beyond-cell">Chinese (Intermediate)</div>
+      <div class="beyond-cell">Channel dynamics</div>
+      <div class="beyond-cell empty edge-cell" aria-hidden="true"></div>
 
+      <div class="beyond-cell empty edge-cell" aria-hidden="true"></div>
       <div class="beyond-cell empty" aria-hidden="true"></div>
-      <a class="beyond-cell" href="#arc">Media Strategy</a>
-      <a class="beyond-cell" href="#what-i-do">Meta Ads</a>
+      <div class="beyond-cell">Media Strategy</div>
+      <div class="beyond-cell">Meta Ads</div>
       <div class="beyond-cell empty" aria-hidden="true"></div>
-      <a class="beyond-cell" href="#contact">Real business outcomes</a>
+      <div class="beyond-cell">Real business outcomes</div>
+      <div class="beyond-cell empty edge-cell" aria-hidden="true"></div>
 
+      <div class="beyond-cell empty edge-cell" aria-hidden="true"></div>
       <div class="beyond-cell empty" aria-hidden="true"></div>
       <div class="beyond-cell empty" aria-hidden="true"></div>
-      <a class="beyond-cell" href="#what-i-do">Google Ads</a>
+      <div class="beyond-cell">Google Ads</div>
       <div class="beyond-cell empty" aria-hidden="true"></div>
       <div class="beyond-cell empty" aria-hidden="true"></div>
+      <div class="beyond-cell empty edge-cell" aria-hidden="true"></div>
     </div>
   </div>
 </section>
