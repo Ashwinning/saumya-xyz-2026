@@ -321,21 +321,26 @@ nav .nav-links a{color:#fff;text-decoration:none;font-size:0.85rem;font-weight:5
   display:flex;
   align-items:flex-start;
   position:relative;
+  z-index:0;
   transition:background-color 0.16s ease, box-shadow 0.16s ease
 }
 .beyond-grid .beyond-cell:nth-child(7n+1){border-left:none}
 .beyond-cell:not(.empty):hover{
   background:transparent;
-  box-shadow:inset 0 0 0 2px #217346
+  box-shadow:inset 0 0 0 2px #217346;
+  z-index:2
 }
 .beyond-cell:not(.empty):hover::after{
   content:"";
   position:absolute;
   width:7px;
   height:7px;
-  right:-1px;
-  bottom:-1px;
+  right:0;
+  bottom:0;
+  transform:translate(50%,50%);
   background:#217346;
+  z-index:3;
+  pointer-events:none;
 }
 .beyond-head{
   min-height:84px;
