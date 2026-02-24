@@ -18,10 +18,10 @@ body{font-family:'DM Sans',sans-serif;background:#FFFBF0;color:#1a1a1a;overflow-
 .action-cloud .animate__animated{animation-timing-function:cubic-bezier(0.16,1,0.3,1)}
 
 /* ── NAV ── */
-nav{position:fixed;top:0;left:0;width:100%;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;z-index:100;mix-blend-mode:difference}
-nav .logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem;color:#fff;letter-spacing:-0.02em}
+nav{position:fixed;top:0;left:0;width:100%;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;z-index:100;background:#FFFBF0;border-bottom:1px solid rgba(0,0,0,0.06)}
+nav .logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem;color:#1a1a1a;letter-spacing:-0.02em}
 nav .nav-links{display:flex;gap:24px}
-nav .nav-links a{color:#fff;text-decoration:none;font-size:0.85rem;font-weight:500;letter-spacing:0.02em;text-transform:uppercase}
+nav .nav-links a{color:#1a1a1a;text-decoration:none;font-size:0.85rem;font-weight:500;letter-spacing:0.02em;text-transform:uppercase}
 
 /* ── HERO ── */
 .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;z-index:1;padding:80px 40px 40px}
@@ -209,16 +209,6 @@ nav .nav-links a{color:#fff;text-decoration:none;font-size:0.85rem;font-weight:5
 @keyframes pulse{0%,100%{transform:translateX(-50%) scale(1)}50%{transform:translateX(-50%) scale(1.15)}}
 @keyframes floaty{0%,100%{transform:translateY(var(--parallax,0px))}50%{transform:translateY(calc(var(--parallax,0px) - 10px))}}
 
-/* ── RECOGNITION SECTION ── */
-.recognition-section{padding:80px 40px;background:#f8f5f0;position:relative;z-index:1}
-.recognition-section .content-max{max-width:900px;margin:0 auto;text-align:center}
-.recognition-section h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:#1a1a1a;letter-spacing:-0.03em;margin-bottom:48px}
-.recognition-badges{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px}
-.rec-badge{background:#fff;padding:32px 24px;border-radius:16px;transition:all 0.3s ease;border:2px solid #ffe}
-.rec-badge:hover{border-color:#E85D3A;transform:scale(1.05);box-shadow:0 8px 32px rgba(232,93,58,0.15)}
-.rec-badge .emoji{font-size:2rem;margin-bottom:12px;display:block}
-.rec-badge p{color:#1a1a1a;font-weight:600;font-size:0.95rem}
-
 /* ── BEYOND SECTION (ROWS FOOTER INSPIRED) ── */
 .about-section{
   padding:88px 0 44px;
@@ -306,7 +296,7 @@ nav .nav-links a{color:#fff;text-decoration:none;font-size:0.85rem;font-weight:5
   display:grid;
   width:100vw;
   margin-left:calc(50% - 50vw);
-  grid-template-columns:minmax(20px,1fr) calc(var(--core-unit) * 1.45) repeat(4, var(--core-unit)) minmax(20px,1fr)
+  grid-template-columns:minmax(20px,1fr) calc(var(--core-unit) * 1.45) repeat(3, var(--core-unit)) minmax(20px,1fr)
 }
 .beyond-cell{
   min-height:52px;
@@ -324,7 +314,7 @@ nav .nav-links a{color:#fff;text-decoration:none;font-size:0.85rem;font-weight:5
   z-index:0;
   transition:background-color 0.16s ease, box-shadow 0.16s ease
 }
-.beyond-grid .beyond-cell:nth-child(7n+1){border-left:none}
+.beyond-grid .beyond-cell:nth-child(6n+1){border-left:none}
 .beyond-cell:not(.empty):hover{
   background:transparent;
   box-shadow:inset 0 0 0 2px #217346;
@@ -450,7 +440,7 @@ footer a:hover{color:#E85D3A}
   .beyond-hero{padding:34px 26px;grid-template-columns:1fr}
   .beyond-doodle{justify-self:start}
   .beyond-grid{
-    grid-template-columns:minmax(8px,1fr) minmax(240px,calc(var(--core-unit) * 1.45)) repeat(4,minmax(180px,var(--core-unit))) minmax(8px,1fr);
+    grid-template-columns:minmax(8px,1fr) minmax(240px,calc(var(--core-unit) * 1.45)) repeat(3,minmax(180px,var(--core-unit))) minmax(8px,1fr);
     overflow-x:auto
   }
   .beyond-head{font-size:2.2rem}
@@ -500,7 +490,7 @@ footer a:hover{color:#E85D3A}
 </div>
 
 <nav>
-  <div class="logo">SS</div>
+  <div class="logo">Saumya Srivastava</div>
   <div class="nav-links">
     <a href="#what-i-do">What I Do</a>
     <a href="#arc">Career Arc</a>
@@ -520,8 +510,7 @@ footer a:hover{color:#E85D3A}
         <div class="fun-stat"><span class="num" data-target="10">0</span><span class="label">Team Strong</span></div>
       </div>
       <div class="cta-row">
-        <a href="#" class="btn btn-primary cloud-guard">Download Resume</a>
-        <a href="#" class="btn btn-secondary cloud-guard">Let's Connect</a>
+        <a href="https://www.linkedin.com/in/saumya-srivastava-97269485/" class="btn btn-primary cloud-guard" target="_blank" rel="noopener noreferrer">Let's Connect</a>
       </div>
     </div>
     <div class="hero-photo">
@@ -602,7 +591,7 @@ footer a:hover{color:#E85D3A}
         <div class="era-marker"><span>01</span></div>
         <div class="era-content">
           <span class="era-period">2014 - Exemplar E-solutions Pvt. Ltd.</span>
-          <h3>The Execution Foundation</h3>
+          <h3>Getting Comfortable With Numbers</h3>
           <p class="era-narrative">
             Started by trying different parts of marketing to understand what resonated. Moved into affiliate marketing where optimization habits, and performance rigor were built from the ground up. Every conversion mattered. 
           </p>
@@ -617,7 +606,7 @@ footer a:hover{color:#E85D3A}
         <div class="era-marker"><span>02</span></div>
         <div class="era-content">
           <span class="era-period">2015 — Fork Media Pvt. Ltd.</span>
-          <h3>The Partnership Depth</h3>
+          <h3>The Pull Toward the Why</h3>
           <p class="era-narrative">
             Went deep into affiliate marketing end-to-end — publisher acquisition, servicing, optimisation, and building tracking systems tight enough to make delivery predictable. Over time, the pull toward upstream decisions grew stronger: not just improving what was running, but shaping where budgets should go and why.
           </p>
@@ -633,7 +622,7 @@ footer a:hover{color:#E85D3A}
         <div class="era-marker"><span>03</span></div>
         <div class="era-content">
           <span class="era-period">2019 — Crayons Communications</span>
-          <h3>The Planning Craft</h3>
+          <h3>The First Taste of Strategy</h3>
           <p class="era-narrative">
             Crayons is where planning became a craft. Built digital strategies, ran Meta and Google campaigns, set up measurement routines, and supported pitches across multi-category briefs including Air India, MP Tourism, Tamil Nadu Government, and Bakson. This was the shift from doing tasks to building decisions — with hands-on dashboard fluency in Google Ad Manager and Meta as part of everyday delivery.
           </p>
@@ -646,9 +635,9 @@ footer a:hover{color:#E85D3A}
           <ul class="era-tags">
             <li>Digital Strategy</li>
             <li>Meta &amp; Google Campaigns</li>
-            <li>Measurement Routines</li>
+           
             <li>Pitch Support</li>
-            <li>Dashboard Operations</li>
+            
           </ul>
         </div>
       </article>
@@ -657,7 +646,7 @@ footer a:hover{color:#E85D3A}
         <div class="era-marker"><span>04</span></div>
         <div class="era-content">
           <span class="era-period">2021 — OMD (Omnicom Media Group)</span>
-          <h3>Scaling Into Complexity</h3>
+          <h3>Learning What High Stakes Actually Means</h3>
           <p class="era-narrative">
             Moved to OMD to work on bigger budgets and sharpen thinking on scale and complexity. Handled HP and Vivo — connecting planning, buying, and reporting into one coherent performance framework at high-stakes budget levels.
           </p>
@@ -666,73 +655,40 @@ footer a:hover{color:#E85D3A}
             <img src="assets/logos/vivo.svg" alt="Vivo">
           </div>
           <ul class="era-tags">
-            <li>Consumer Tech</li>
+            
             <li>Budget Orchestration</li>
             <li>Cross-Channel Planning</li>
           </ul>
         </div>
       </article>
 
-      <article class="era" data-era="5">
-        <div class="era-marker"><span>05</span></div>
+      <article class="era era-current" data-era="5">
+        <div class="era-marker"><span>Now</span></div>
         <div class="era-content">
-          <span class="era-period">2023 — Dentsu / iProspect</span>
-          <h3>Broadening the Portfolio</h3>
+          <span class="era-period">2023 — Present · Dentsu</span>
+          <h3>More Categories, Bigger Accountability</h3>
           <p class="era-narrative">
-            Deliberately broadened category exposure by taking on Suzuki two-wheelers, followed by Dabur, and then Eli Lilly. Full-funnel planning with platform fluency across FMCG, pharma, and automotive — operating across teams, channels, and annual business cycles.
+            Deliberately broadening category exposure across Suzuki two-wheelers, Dabur, and Eli Lilly, LG & McCain— building full-funnel fluency across FMCG, pharma, and other categories. Sharpening the integration of insight, strategy, and execution into a single delivery system. <br>Now leading a 10-person team across planning, platform, and ad operations, driving campaigns across digital & offline media. 
           </p>
           <div class="era-logos">
             <img src="assets/logos/suzuki.svg" alt="Suzuki" style="height: 20px;">
             <img src="assets/logos/dabur.svg" alt="Dabur">
             <img src="assets/logos/lilly.svg" alt="Eli Lilly">
-          </div>
-          <ul class="era-tags">
-            <li>FMCG</li>
-            <li>Pharma</li>
-            <li>Two-Wheelers</li>
-            <li>Full-Funnel Strategy</li>
-          </ul>
-        </div>
-      </article>
-
-      <article class="era" data-era="6">
-        <div class="era-marker"><span>06</span></div>
-        <div class="era-content">
-          <span class="era-period">2024 — Dentsu International</span>
-          <h3>Senior Business Director</h3>
-          <p class="era-narrative">
-            Elevated to Senior Business Director — digital planning across major accounts. Sharpening the integration of insight, strategy, and execution into a single delivery system. Recognized with Dentsu Team and Employee of the Quarter awards.
-          </p>
-          <div class="era-recognition">
-            <span>Team of the Quarter</span>
-            <span>Employee of the Quarter</span>
-          </div>
-          <ul class="era-tags">
-            <li>Digital Strategy</li>
-            <li>Client Leadership</li>
-            <li>Delivery Excellence</li>
-          </ul>
-        </div>
-      </article>
-
-      <article class="era era-current" data-era="7">
-        <div class="era-marker"><span>Now</span></div>
-        <div class="era-content">
-          <span class="era-period">2025 — Present</span>
-          <h3>Associate Vice President, Integrated Planning</h3>
-          <p class="era-narrative">
-            Leading integrated planning across offline and digital. Supporting India launch and ongoing integrated campaigns across print, OOH, digital, influencer, and retail. Managing a 10-person team across planning, platform, and ad operations. Today the value is in synthesis — turning business context into channel intelligence, team clarity, and measurable growth.
-          </p>
-          <div class="era-logos">
-            <img src="assets/logos/lilly.svg" alt="Eli Lilly">
             <img src="assets/logos/LG-2.png" alt="LG">
             <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/McCain_Foods_New_Logo.png" alt="McCain">
           </div>
+          <div class="era-recognition">
+            <span>🏆 Team of the Quarter</span>
+            <span>⭐ Employee of the Quarter</span>
+          </div>
           <ul class="era-tags">
             <li>Integrated Planning</li>
-            <li>Team Leadership</li>
-            <li>Multi-Brand Stewardship</li>
+            <li>Full-Funnel Strategy</li>
+            <li>Client Leadership</li>
+            
+           
             <li>Offline + Digital</li>
+            
           </ul>
         </div>
       </article>
@@ -740,31 +696,16 @@ footer a:hover{color:#E85D3A}
   </div>
 </section>
 
-<section class="recognition-section reveal">
-  <div class="content-max">
-    <h2>Recognition</h2>
-    <div class="recognition-badges">
-      <div class="rec-badge reveal">
-        <div class="emoji">🏆</div>
-        <p>Dentsu Team of the Quarter</p>
-      </div>
-      <div class="rec-badge reveal">
-        <div class="emoji">⭐</div>
-        <p>Dentsu Employee of the Quarter</p>
-      </div>
-    </div>
-  </div>
-</section>
 
-<section class="about-section" aria-label="Beyond the Resume">
+
+<section class="about-section" aria-label="Saumya's SKILLS.md">
   <div class="beyond-shell">
     <div class="beyond-grid" role="list">
       <div class="beyond-cell empty edge-cell" aria-hidden="true"></div>
-      <div class="beyond-cell beyond-head">Beyond the Resume</div>
+      <div class="beyond-cell beyond-head">Saumya's SKILLS.md</div>
       <div class="beyond-cell beyond-head small" style="font-size: 28px;">Core Skills</div>
       <div class="beyond-cell beyond-head small" style="font-size: 28px;">Tools & Platforms</div>
       <div class="beyond-cell beyond-head small" style="font-size: 28px;">Languages</div>
-      <div class="beyond-cell beyond-head small" style="font-size: 28px;">Beyond Work</div>
       <div class="beyond-cell empty edge-cell" aria-hidden="true"></div>
 
       <div class="beyond-cell empty edge-cell" aria-hidden="true"></div>
@@ -772,7 +713,6 @@ footer a:hover{color:#E85D3A}
       <div class="beyond-cell">Integrated Planning</div>
       <div class="beyond-cell">GWI</div>
       <div class="beyond-cell">English (Fluent)</div>
-      <div class="beyond-cell">Audience behavior</div>
       <div class="beyond-cell empty edge-cell" aria-hidden="true"></div>
 
       <div class="beyond-cell empty edge-cell" aria-hidden="true"></div>
@@ -780,7 +720,6 @@ footer a:hover{color:#E85D3A}
       <div class="beyond-cell">Audience Strategy</div>
       <div class="beyond-cell">Comscore</div>
       <div class="beyond-cell">Hindi (Fluent)</div>
-      <div class="beyond-cell">Platform economics</div>
       <div class="beyond-cell empty edge-cell" aria-hidden="true"></div>
 
       <div class="beyond-cell empty edge-cell" aria-hidden="true"></div>
@@ -788,7 +727,6 @@ footer a:hover{color:#E85D3A}
       <div class="beyond-cell">Digital Planning</div>
       <div class="beyond-cell">Similarweb</div>
       <div class="beyond-cell">Chinese (Intermediate)</div>
-      <div class="beyond-cell">Channel dynamics</div>
       <div class="beyond-cell empty edge-cell" aria-hidden="true"></div>
 
       <div class="beyond-cell empty edge-cell" aria-hidden="true"></div>
@@ -796,14 +734,12 @@ footer a:hover{color:#E85D3A}
       <div class="beyond-cell">Media Strategy</div>
       <div class="beyond-cell">Meta Ads</div>
       <div class="beyond-cell empty" aria-hidden="true"></div>
-      <div class="beyond-cell">Real business outcomes</div>
       <div class="beyond-cell empty edge-cell" aria-hidden="true"></div>
 
       <div class="beyond-cell empty edge-cell" aria-hidden="true"></div>
       <div class="beyond-cell empty" aria-hidden="true"></div>
       <div class="beyond-cell empty" aria-hidden="true"></div>
       <div class="beyond-cell">Google Ads</div>
-      <div class="beyond-cell empty" aria-hidden="true"></div>
       <div class="beyond-cell empty" aria-hidden="true"></div>
       <div class="beyond-cell empty edge-cell" aria-hidden="true"></div>
     </div>
@@ -837,15 +773,7 @@ footer a:hover{color:#E85D3A}
             <li>Chinese (Intermediate)</li>
           </ul>
         </article>
-        <article class="beyond-mobile-card">
-          <h3>Beyond Work</h3>
-          <ul>
-            <li>Audience behavior</li>
-            <li>Platform economics</li>
-            <li>Channel dynamics</li>
-            <li>Real business outcomes</li>
-          </ul>
-        </article>
+
       </div>
     </div>
   </div>
@@ -856,8 +784,7 @@ footer a:hover{color:#E85D3A}
     <h2>Let's Connect</h2>
     <p>Whether you're exploring media strategy, building integrated campaigns, or just want to chat about marketing—I'm always open to conversations.</p>
     <div class="contact-cta">
-      <a href="assets/Resume_Saumya%20Srivastava.pdf" class="btn btn-primary">Download Resume</a>
-      <a href="https://linkedin.com/in/" class="btn btn-secondary">LinkedIn</a>
+      <a href="https://www.linkedin.com/in/saumya-srivastava-97269485/" class="btn btn-primary" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     </div>
   </div>
 </section>
